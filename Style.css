@@ -39,7 +39,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 105px;
 }
 
 body {
@@ -278,38 +278,23 @@ h3 {
   align-items: center;
   justify-content: space-between;
 
-  min-height: 78px;
+  min-height: 95px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
-
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 700;
+  flex-shrink: 0;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 85px;
+}
 
-  width: 39px;
-  height: 39px;
-
-  border: 1px solid var(--border-purple);
-  border-radius: 12px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--primary),
-      var(--primary-light)
-    );
-
-  box-shadow: 0 12px 35px rgba(124, 58, 237, 0.35);
-
-  font-size: 0.78rem;
+.site-footer .brand-logo {
+  height: 85px;
 }
 
 .navigation {
@@ -943,9 +928,10 @@ h3 {
 .evolution-timeline {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 
-  overflow-x: auto;
-  padding: 35px 20px;
+  padding: 35px 24px;
 
   border: 1px solid var(--border);
   border-radius: var(--radius-large);
@@ -956,7 +942,8 @@ h3 {
 }
 
 .evolution-timeline article {
-  flex: 0 0 145px;
+  flex: 1 1 0;
+  min-width: 0;
 
   text-align: center;
 }
@@ -990,8 +977,10 @@ h3 {
 }
 
 .timeline-line {
-  flex: 1 0 55px;
+  flex: 1 1 28px;
 
+  min-width: 14px;
+  max-width: 48px;
   height: 1px;
 
   background:
@@ -1547,7 +1536,7 @@ h3 {
 
   .navigation {
     position: fixed;
-    top: 78px;
+    top: 95px;
     right: 20px;
     left: 20px;
 
@@ -1717,6 +1706,50 @@ h3 {
   .benefits-grid,
   .lessons-grid {
     grid-template-columns: 1fr;
+  }
+
+  .evolution-timeline {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 24px 20px;
+  }
+
+  .evolution-timeline article {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    align-items: center;
+
+    text-align: left;
+  }
+
+  .evolution-timeline article > span {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .evolution-timeline strong,
+  .evolution-timeline small {
+    text-align: left;
+  }
+
+  .timeline-line {
+    flex: none;
+
+    width: 1px;
+    min-width: 1px;
+    max-width: none;
+    height: 22px;
+    margin: 6px 0 6px 23px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--primary),
+        rgba(168, 85, 247, 0.12)
+      );
   }
 
   .comparison-card {
