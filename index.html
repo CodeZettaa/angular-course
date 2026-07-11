@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Modern Angular course by Nourhan Saeed. Learn Reactivity, Signals, Enterprise Architecture, and build two real-world projects."
+  />
+
+  <meta name="theme-color" content="#09090b" />
+
+  <title>Modern Angular | CodeZetta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./styles.css" />
+
+  <script src="./script.js" defer></script>
+</head>
+
+<body>
+  <!-- Decorative background -->
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="background-orb orb-one" aria-hidden="true"></div>
+  <div class="background-orb orb-two" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        <span class="brand-mark">CZ</span>
+        <span>CodeZetta</span>
+      </a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">Instructor</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#projects">Projects</a>
+        <a href="#mentorship">Mentorship</a>
+        <a href="#faq">FAQ</a>
+
+        <a class="button button-small" href="#enroll">
+          Get Course Details
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero section" id="home">
+      <div class="container hero-layout">
+        <div class="hero-content reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Available 15 July
+          </div>
+
+          <h1>
+            Modern Angular
+            <span>Think Like The Angular Team.</span>
+          </h1>
+
+          <p class="hero-description">
+            Master Reactivity, Angular Signals, modern component APIs,
+            enterprise architecture, and build two real-world projects.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#curriculum">
+              Explore Curriculum
+            </a>
+
+            <a class="button button-secondary" href="#previews">
+              Watch Free Lessons
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <span>11 Modules</span>
+            <span>2 Enterprise Projects</span>
+            <span>1:1 Mentorship</span>
+            <span>Lifetime Updates</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="angular-orbit">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="angular-logo" aria-label="Angular inspired logo">
+              <span>A</span>
+            </div>
+
+            <div class="floating-card card-reactivity">
+              <small>Foundation</small>
+              <strong>Reactivity</strong>
+            </div>
+
+            <div class="floating-card card-signals">
+              <small>Core</small>
+              <strong>Signals</strong>
+            </div>
+
+            <div class="floating-card card-enterprise">
+              <small>Production</small>
+              <strong>Enterprise</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="trust-strip">
+      <div class="container trust-items">
+        <span>Reactivity from first principles</span>
+        <span>Modern Angular APIs</span>
+        <span>Enterprise architecture</span>
+        <span>Practical project-based learning</span>
+      </div>
+    </section>
+
+    <!-- Why the course -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">Why this course exists</span>
+
+          <h2>
+            Most courses teach APIs.
+            <span>This course teaches how Angular thinks.</span>
+          </h2>
+
+          <p>
+            The goal is not to memorize new syntax. The goal is to understand
+            the ideas behind Angular's evolution so you can confidently learn
+            future features directly from the documentation.
+          </p>
+        </div>
+
+        <div class="comparison-grid">
+          <article class="comparison-card muted-card reveal">
+            <span class="comparison-badge">Traditional learning</span>
+
+            <h3>Copy. Paste. Forget.</h3>
+
+            <ul class="check-list negative-list">
+              <li>Memorize APIs without context</li>
+              <li>Wait for someone to explain every update</li>
+              <li>Build demos instead of scalable applications</li>
+              <li>Use patterns without understanding trade-offs</li>
+            </ul>
+          </article>
+
+          <article class="comparison-card featured-card reveal">
+            <span class="comparison-badge">The CodeZetta method</span>
+
+            <h3>Understand. Build. Master.</h3>
+
+            <ul class="check-list">
+              <li>Understand why Angular introduced each feature</li>
+              <li>Build Reactivity concepts from scratch</li>
+              <li>Apply the concepts inside enterprise projects</li>
+              <li>Learn to make architecture decisions with confidence</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section section-surface" id="about">
+      <div class="container about-layout">
+        <div class="instructor-card reveal">
+          <div class="instructor-avatar">
+            <span>NS</span>
+          </div>
+
+          <div>
+            <span class="section-label">Meet your instructor</span>
+            <h2>Nourhan Saeed</h2>
+
+            <p>
+              App Tech Lead, enterprise frontend engineer, Angular instructor,
+              mentor, and founder of CodeZetta.
+            </p>
+          </div>
+        </div>
+
+        <div class="career-grid">
+          <article class="career-card reveal">
+            <span class="career-icon">01</span>
+            <h3>App Tech Lead</h3>
+            <p>
+              Leading frontend architecture, code reviews, and modern Angular
+              practices in enterprise applications.
+            </p>
+          </article>
+
+          <article class="career-card reveal">
+            <span class="career-icon">02</span>
+            <h3>Former Staff Engineer</h3>
+            <p>
+              Years of experience building and scaling production frontend
+              applications used by real customers.
+            </p>
+          </article>
+
+          <article class="career-card reveal">
+            <span class="career-icon">03</span>
+            <h3>Angular Instructor</h3>
+            <p>
+              Teaching Angular, JavaScript, TypeScript, architecture, and
+              advanced frontend engineering.
+            </p>
+          </article>
+
+          <article class="career-card reveal">
+            <span class="career-icon">04</span>
+            <h3>Founder of CodeZetta</h3>
+            <p>
+              Building practical Arabic technical education that focuses on
+              deep understanding and real-world engineering.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Angular evolution -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">The Angular evolution</span>
+
+          <h2>
+            Signals were not an isolated feature.
+            <span>They were the beginning of a new direction.</span>
+          </h2>
+        </div>
+
+        <div class="evolution-timeline reveal">
+          <div class="timeline-item">
+            <span>01</span>
+            <strong>Zone.js</strong>
+            <small>Broad change detection</small>
+          </div>
+
+          <div class="timeline-line"></div>
+
+          <div class="timeline-item">
+            <span>02</span>
+            <strong>Signals</strong>
+            <small>Fine-grained reactivity</small>
+          </div>
+
+          <div class="timeline-line"></div>
+
+          <div class="timeline-item">
+            <span>03</span>
+            <strong>Modern APIs</strong>
+            <small>input, output, model</small>
+          </div>
+
+          <div class="timeline-line"></div>
+
+          <div class="timeline-item">
+            <span>04</span>
+            <strong>Async Reactivity</strong>
+            <small>Resources and Signal Forms</small>
+          </div>
+
+          <div class="timeline-line"></div>
+
+          <div class="timeline-item">
+            <span>05</span>
+            <strong>Zoneless</strong>
+            <small>Modern Angular architecture</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section class="section section-surface" id="curriculum">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">Course curriculum</span>
+
+          <h2>
+            From Reactivity fundamentals
+            <span>to enterprise Angular applications.</span>
+          </h2>
+
+          <p>
+            Select any module to view its key topics.
+          </p>
+        </div>
+
+        <div class="accordion" id="courseAccordion">
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">01</span>
+
+              <span class="module-title">
+                <strong>The Story Behind Signals</strong>
+                <small>Understand why Angular needed Signals.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>What is Reactivity?</li>
+                <li>Broad vs Fine-Grained Reactivity</li>
+                <li>Dependency Graphs</li>
+                <li>Reactive systems using Getters, Setters, and Proxy</li>
+                <li>The problem with Zone.js</li>
+                <li>Why Angular introduced Signals</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">02</span>
+
+              <span class="module-title">
+                <strong>Signals Fundamentals</strong>
+                <small>Build reliable state using Angular Signals.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Reading and updating Signals</li>
+                <li>set() and update()</li>
+                <li>Primitive, object, and array Signals</li>
+                <li>Immutable updates</li>
+                <li>Common mistakes and best practices</li>
+                <li>Practical module lab</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">03</span>
+
+              <span class="module-title">
+                <strong>Computed Signals</strong>
+                <small>Build efficient and predictable derived state.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Why Computed Signals exist</li>
+                <li>Lazy evaluation</li>
+                <li>Memoization</li>
+                <li>Dynamic dependencies</li>
+                <li>Nested Computed Signals</li>
+                <li>Computed vs regular functions</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">04</span>
+
+              <span class="module-title">
+                <strong>Effects</strong>
+                <small>Manage side effects without creating hidden bugs.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Effect lifecycle</li>
+                <li>Cleanup</li>
+                <li>untracked()</li>
+                <li>Debugging Effects</li>
+                <li>Anti-patterns</li>
+                <li>When not to use an Effect</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">05</span>
+
+              <span class="module-title">
+                <strong>Resources & Async Reactivity</strong>
+                <small>Handle asynchronous data with reactive state.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Resources</li>
+                <li>Loading and error states</li>
+                <li>Retry and cancellation</li>
+                <li>linkedSignal()</li>
+                <li>Async best practices</li>
+                <li>Practical module lab</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">06</span>
+
+              <span class="module-title">
+                <strong>RxJS Interoperability</strong>
+                <small>Learn when to use Signals, RxJS, or both.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Signals vs RxJS</li>
+                <li>toSignal()</li>
+                <li>toObservable()</li>
+                <li>Hybrid architectures</li>
+                <li>Migration strategies</li>
+                <li>Common interoperability pitfalls</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">07</span>
+
+              <span class="module-title">
+                <strong>Signal Forms</strong>
+                <small>Build modern and reactive Angular forms.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Creating Signal Forms</li>
+                <li>Validation</li>
+                <li>Async validation</li>
+                <li>Dynamic Forms</li>
+                <li>Nested Forms</li>
+                <li>Custom validators</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">08</span>
+
+              <span class="module-title">
+                <strong>Component Communication</strong>
+                <small>Build modern components using signal-based APIs.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Input Signals</li>
+                <li>Output APIs</li>
+                <li>model() and two-way binding</li>
+                <li>Signal Queries</li>
+                <li>Parent-to-child communication</li>
+                <li>Shared state patterns</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">09</span>
+
+              <span class="module-title">
+                <strong>Enterprise Architecture</strong>
+                <small>Organize Angular applications for scale.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Feature-based architecture</li>
+                <li>Folder structure</li>
+                <li>Smart and presentational components</li>
+                <li>State organization</li>
+                <li>Services vs Signals</li>
+                <li>Performance patterns and code review tips</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">10</span>
+
+              <span class="module-title">
+                <strong>Enterprise Project One</strong>
+                <small>Apply the course concepts inside a real application.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Project-based Angular fundamentals review</li>
+                <li>Routing and application structure</li>
+                <li>Authentication and user state</li>
+                <li>Forms and API integration</li>
+                <li>Signals inside production features</li>
+                <li>Performance and refactoring</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-number">11</span>
+
+              <span class="module-title">
+                <strong>Final Enterprise Project</strong>
+                <small>A second advanced project and final challenge.</small>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <ul>
+                <li>Advanced application architecture</li>
+                <li>Reusable component patterns</li>
+                <li>Complex state and business requirements</li>
+                <li>Performance optimization</li>
+                <li>Code review and refactoring</li>
+                <li>Final production-ready delivery</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">Project-based learning</span>
+
+          <h2>
+            Two enterprise projects.
+            <span>Not disconnected demos.</span>
+          </h2>
+
+          <p>
+            Angular fundamentals will be reviewed exactly when they are needed
+            during project implementation.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card project-card-primary reveal">
+            <div class="project-top">
+              <span class="project-number">Project 01</span>
+              <span class="project-status">Enterprise</span>
+            </div>
+
+            <div class="project-mockup">
+              <div class="mockup-sidebar"></div>
+
+              <div class="mockup-content">
+                <div class="mockup-header"></div>
+
+                <div class="mockup-stats">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class="mockup-chart"></div>
+              </div>
+            </div>
+
+            <h3>CodeZetta Learning Platform</h3>
+
+            <p>
+              A complete Angular application covering authentication, course
+              discovery, learning features, dashboards, state, and performance.
+            </p>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="project-number">Project 02</span>
+              <span class="project-status">Advanced</span>
+            </div>
+
+            <div class="project-placeholder">
+              <span>Project details will be revealed soon.</span>
+            </div>
+
+            <h3>Final Enterprise Project</h3>
+
+            <p>
+              An advanced project designed to validate architecture decisions,
+              Angular Signals knowledge, and production-level thinking.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section section-surface">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">More than recorded videos</span>
+
+          <h2>
+            A complete
+            <span>learning experience.</span>
+          </h2>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card reveal">
+            <span class="benefit-icon">1:1</span>
+            <h3>Personal Mentorship</h3>
+            <p>
+              One private mentoring session during the first month after
+              purchasing the course.
+            </p>
+          </article>
+
+          <article class="benefit-card reveal">
+            <span class="benefit-icon">∞</span>
+            <h3>Lifetime Updates</h3>
+            <p>
+              Receive future course updates when Angular introduces relevant
+              features or changes.
+            </p>
+          </article>
+
+          <article class="benefit-card reveal">
+            <span class="benefit-icon">&lt;/&gt;</span>
+            <h3>Source Code</h3>
+            <p>
+              Access project code, module examples, exercises, and practical
+              implementations.
+            </p>
+          </article>
+
+          <article class="benefit-card reveal">
+            <span class="benefit-icon">LAB</span>
+            <h3>Hands-On Labs</h3>
+            <p>
+              Apply each important concept through focused exercises and module
+              challenges.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentorship -->
+    <section class="section" id="mentorship">
+      <div class="container mentorship-card reveal">
+        <div>
+          <span class="section-label">Included with your enrollment</span>
+
+          <h2>
+            One private mentoring session
+            <span>with Nourhan Saeed.</span>
+          </h2>
+
+          <p>
+            Every student receives one private session during the first month
+            after purchasing the course.
+          </p>
+
+          <div class="mentorship-topics">
+            <span>Angular Questions</span>
+            <span>Code Review</span>
+            <span>Career Guidance</span>
+            <span>Project Review</span>
+            <span>Learning Plan</span>
+          </div>
+        </div>
+
+        <div class="calendar-visual">
+          <div class="calendar-header">
+            <span></span>
+            <strong>Mentoring Session</strong>
+          </div>
+
+          <div class="calendar-grid">
+            <span></span>
+            <span></span>
+            <span class="active-day">1:1</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YouTube previews -->
+    <section class="section section-surface" id="previews">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">Watch before you enroll</span>
+
+          <h2>
+            Two complete lessons
+            <span>will be available free on YouTube.</span>
+          </h2>
+
+          <p>
+            Watch the teaching style and course quality before making your
+            decision.
+          </p>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-card reveal">
+            <div class="video-placeholder">
+              <span class="play-button">▶</span>
+            </div>
+
+            <div class="video-details">
+              <small>Free Preview Lesson 01</small>
+              <h3>Why Angular Introduced Signals</h3>
+
+              <!-- Replace # with the first YouTube lesson link -->
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                Available soon
+              </a>
+            </div>
+          </article>
+
+          <article class="video-card reveal">
+            <div class="video-placeholder">
+              <span class="play-button">▶</span>
+            </div>
+
+            <div class="video-details">
+              <small>Free Preview Lesson 02</small>
+              <h3>Reactivity Under the Hood</h3>
+
+              <!-- Replace # with the second YouTube lesson link -->
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                Available soon
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback -->
+    <section class="section" id="feedback">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">Student feedback</span>
+
+          <h2>
+            What students say
+            <span>about learning with Nourhan.</span>
+          </h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="quote-mark">“</div>
+
+            <p>
+              Student feedback will be added here soon.
+            </p>
+
+            <div class="student-info">
+              <div class="student-avatar">01</div>
+
+              <div>
+                <strong>Student Name</strong>
+                <small>Angular Developer</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="quote-mark">“</div>
+
+            <p>
+              Student feedback will be added here soon.
+            </p>
+
+            <div class="student-info">
+              <div class="student-avatar">02</div>
+
+              <div>
+                <strong>Student Name</strong>
+                <small>Frontend Developer</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="quote-mark">“</div>
+
+            <p>
+              Student feedback will be added here soon.
+            </p>
+
+            <div class="student-info">
+              <div class="student-avatar">03</div>
+
+              <div>
+                <strong>Student Name</strong>
+                <small>Software Engineer</small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-surface" id="faq">
+      <div class="container faq-layout">
+        <div class="section-heading reveal">
+          <span class="section-label">Frequently asked questions</span>
+
+          <h2>
+            Everything you need
+            <span>before starting.</span>
+          </h2>
+        </div>
+
+        <div class="accordion">
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-title">
+                <strong>Is this a complete Angular beginner course?</strong>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <p>
+                The course focuses on Reactivity, Signals, modern Angular APIs,
+                and enterprise architecture. Angular fundamentals are reviewed
+                during the projects exactly when they are needed.
+              </p>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-title">
+                <strong>Do I need previous Angular experience?</strong>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <p>
+                Basic Angular knowledge is recommended. Developers returning to
+                Angular after a break can follow because the important
+                fundamentals are reviewed during project implementation.
+              </p>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-title">
+                <strong>How does the mentorship session work?</strong>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <p>
+                Each student receives one private session during the first month
+                after buying the course. It can be used for Angular questions,
+                code review, career guidance, or a personalized learning plan.
+              </p>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-title">
+                <strong>Will the course receive future updates?</strong>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <p>
+                Yes. Relevant Angular updates connected to the course topics
+                will be added as lifetime updates.
+              </p>
+            </div>
+          </article>
+
+          <article class="accordion-item reveal">
+            <button class="accordion-trigger" type="button">
+              <span class="module-title">
+                <strong>When will the course be available?</strong>
+              </span>
+
+              <span class="accordion-icon">+</span>
+            </button>
+
+            <div class="accordion-content">
+              <p>
+                The course will be available starting 15 July.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enrollment CTA -->
+    <section class="section" id="enroll">
+      <div class="container enrollment-card reveal">
+        <span class="section-label">Enrollment opens 15 July</span>
+
+        <h2>
+          Become an Angular developer who understands the framework,
+          <span>not just its APIs.</span>
+        </h2>
+
+        <p>
+          Send a message to receive pricing, enrollment details, and the
+          complete course roadmap.
+        </p>
+
+        <div class="enrollment-actions">
+          <!-- Replace this WhatsApp number with your real number -->
+          <a
+            class="button"
+            href="https://wa.me/201000000000?text=Hello%20Nourhan%2C%20I%20am%20interested%20in%20the%20Modern%20Angular%20course."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contact on WhatsApp
+          </a>
+
+          <!-- Replace this with your Facebook page or Messenger link -->
+          <a
+            class="button button-secondary"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Send a Message
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a class="brand" href="#home">
+        <span class="brand-mark">CZ</span>
+        <span>CodeZetta</span>
+      </a>
+
+      <p>
+        Modern Angular — Think Like The Angular Team.
+      </p>
+
+      <p>
+        © <span id="currentYear"></span> CodeZetta.
+      </p>
+    </div>
+  </footer>
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+</body>
+</html>
