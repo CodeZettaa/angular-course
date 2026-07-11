@@ -1,96 +1,26 @@
 "use strict";
 
-/**
- * CodeZetta Modern Angular Landing Page
- *
- * Features:
- * - Mobile navigation
- * - Sticky header
- * - Accordion interactions
- * - Scroll reveal animations
- * - Back-to-top button
- * - Automatic copyright year
- */
-
 document.addEventListener("DOMContentLoaded", () => {
-  initializeMobileNavigation();
   initializeHeader();
+  initializeMobileNavigation();
   initializeAccordions();
-  initializeScrollReveal();
+  initializeRevealAnimations();
   initializeBackToTop();
   initializeCurrentYear();
 });
 
 /**
- * Opens and closes the mobile navigation.
- */
-function initializeMobileNavigation() {
-  const menuButton = document.getElementById("menuButton");
-  const navLinks = document.getElementById("navLinks");
-
-  if (!menuButton || !navLinks) {
-    return;
-  }
-
-  const closeMenu = () => {
-    menuButton.classList.remove("active");
-    navLinks.classList.remove("open");
-    document.body.classList.remove("menu-open");
-
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open navigation menu");
-  };
-
-  const openMenu = () => {
-    menuButton.classList.add("active");
-    navLinks.classList.add("open");
-    document.body.classList.add("menu-open");
-
-    menuButton.setAttribute("aria-expanded", "true");
-    menuButton.setAttribute("aria-label", "Close navigation menu");
-  };
-
-  menuButton.addEventListener("click", () => {
-    const isOpen = navLinks.classList.contains("open");
-
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 820) {
-      closeMenu();
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeMenu();
-    }
-  });
-}
-
-/**
- * Adds a blurred background to the header after scrolling.
+ * Add a transparent blurred background to the navigation after scrolling.
  */
 function initializeHeader() {
-  const header = document.querySelector(".site-header");
+  const header = document.getElementById("siteHeader");
 
   if (!header) {
     return;
   }
 
   const updateHeader = () => {
-    const hasScrolled = window.scrollY > 20;
-
-    header.classList.toggle("scrolled", hasScrolled);
+    header.classList.toggle("scrolled", window.scrollY > 20);
   };
 
   updateHeader();
@@ -101,7 +31,69 @@ function initializeHeader() {
 }
 
 /**
- * Initializes all curriculum and FAQ accordions.
+ * Open and close the responsive mobile navigation.
+ */
+function initializeMobileNavigation() {
+  const menuButton = document.getElementById("menuButton");
+  const navigation = document.getElementById("navigation");
+
+  if (!menuButton || !navigation) {
+    return;
+  }
+
+  const closeMenu = () => {
+    navigation.classList.remove("open");
+    document.body.classList.remove("menu-open");
+
+    menuButton.setAttribute("aria-expanded", "false");
+  };
+
+  menuButton.addEventListener("click", () => {
+    const shouldOpen = !navigation.classList.contains("open");
+
+    navigation.classList.toggle("open", shouldOpen);
+    document.body.classList.toggle("menu-open", shouldOpen);
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(shouldOpen)
+    );
+  });
+
+  navigation.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (!(target instanceof Node)) {
+      return;
+    }
+
+    const clickedInsideNavigation = navigation.contains(target);
+    const clickedMenuButton = menuButton.contains(target);
+
+    if (!clickedInsideNavigation && !clickedMenuButton) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1000) {
+      closeMenu();
+    }
+  });
+}
+
+/**
+ * Open and close curriculum and FAQ accordion items.
  */
 function initializeAccordions() {
   const accordionItems = document.querySelectorAll(".accordion-item");
@@ -110,7 +102,11 @@ function initializeAccordions() {
     const trigger = item.querySelector(".accordion-trigger");
     const content = item.querySelector(".accordion-content");
 
-    if (!trigger || !content) {
+    if (!(trigger instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    if (!(content instanceof HTMLElement)) {
       return;
     }
 
@@ -119,60 +115,38 @@ function initializeAccordions() {
     trigger.addEventListener("click", () => {
       const isActive = item.classList.contains("active");
 
-      if (isActive) {
-        closeAccordionItem(item, trigger, content);
-      } else {
-        openAccordionItem(item, trigger, content);
-      }
+      item.classList.toggle("active", !isActive);
+      trigger.setAttribute("aria-expanded", String(!isActive));
+
+      content.style.maxHeight = isActive
+        ? "0px"
+        : `${content.scrollHeight}px`;
     });
   });
 
-  window.addEventListener("resize", updateOpenAccordions);
+  window.addEventListener("resize", () => {
+    document
+      .querySelectorAll(".accordion-item.active .accordion-content")
+      .forEach((content) => {
+        if (content instanceof HTMLElement) {
+          content.style.maxHeight = `${content.scrollHeight}px`;
+        }
+      });
+  });
 }
 
 /**
- * Opens a specific accordion item.
+ * Reveal sections and cards when they enter the viewport.
  */
-function openAccordionItem(item, trigger, content) {
-  item.classList.add("active");
-  trigger.setAttribute("aria-expanded", "true");
+function initializeRevealAnimations() {
+  const elements = document.querySelectorAll(".reveal");
 
-  content.style.maxHeight = `${content.scrollHeight}px`;
-}
-
-/**
- * Closes a specific accordion item.
- */
-function closeAccordionItem(item, trigger, content) {
-  item.classList.remove("active");
-  trigger.setAttribute("aria-expanded", "false");
-
-  content.style.maxHeight = "0px";
-}
-
-/**
- * Recalculates accordion heights after a screen resize.
- */
-function updateOpenAccordions() {
-  document
-    .querySelectorAll(".accordion-item.active .accordion-content")
-    .forEach((content) => {
-      content.style.maxHeight = `${content.scrollHeight}px`;
-    });
-}
-
-/**
- * Reveals elements when they enter the screen.
- */
-function initializeScrollReveal() {
-  const revealElements = document.querySelectorAll(".reveal");
-
-  if (!revealElements.length) {
+  if (!elements.length) {
     return;
   }
 
   if (!("IntersectionObserver" in window)) {
-    revealElements.forEach((element) => {
+    elements.forEach((element) => {
       element.classList.add("visible");
     });
 
@@ -192,62 +166,59 @@ function initializeScrollReveal() {
     },
     {
       root: null,
-      rootMargin: "0px 0px -70px",
+      rootMargin: "0px 0px -60px 0px",
       threshold: 0.08
     }
   );
 
-  revealElements.forEach((element, index) => {
-    const delay = Math.min((index % 4) * 70, 210);
+  elements.forEach((element, index) => {
+    const delay = Math.min((index % 4) * 60, 180);
 
-    element.style.transitionDelay = `${delay}ms`;
+    if (element instanceof HTMLElement) {
+      element.style.transitionDelay = `${delay}ms`;
+    }
 
     observer.observe(element);
   });
 }
 
 /**
- * Shows the back-to-top button after scrolling.
+ * Display and control the back-to-top button.
  */
 function initializeBackToTop() {
-  const backToTopButton = document.getElementById("backToTop");
+  const button = document.getElementById("backToTop");
 
-  if (!backToTopButton) {
+  if (!(button instanceof HTMLButtonElement)) {
     return;
   }
 
-  const updateButtonVisibility = () => {
-    backToTopButton.classList.toggle(
-      "visible",
-      window.scrollY > 600
-    );
+  const updateVisibility = () => {
+    button.classList.toggle("visible", window.scrollY > 600);
   };
 
-  backToTopButton.addEventListener("click", () => {
+  button.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
   });
 
-  updateButtonVisibility();
+  updateVisibility();
 
-  window.addEventListener("scroll", updateButtonVisibility, {
+  window.addEventListener("scroll", updateVisibility, {
     passive: true
   });
 }
 
 /**
- * Writes the current year into the footer.
+ * Set the footer year automatically.
  */
 function initializeCurrentYear() {
-  const currentYearElement = document.getElementById("currentYear");
+  const yearElement = document.getElementById("currentYear");
 
-  if (!currentYearElement) {
+  if (!yearElement) {
     return;
   }
 
-  currentYearElement.textContent = String(
-    new Date().getFullYear()
-  );
+  yearElement.textContent = String(new Date().getFullYear());
 }
